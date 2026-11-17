@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMMUNOLOGY LIVE — Course Index</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --bg-page: #eaf0ed;
+    --card-bg: #ffffff;
+    --primary: #1f4f4f;
+    --accent: #318282;
+    --accent-light: #e6f2f0;
+    --text-main: #243333;
+    --text-muted: #5a7373;
+    --border: #d4e3df;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 40px 15px 80px 15px;
+    color: var(--text-main);
+    line-height: 1.5;
+  }
+
+  .index-container {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  /* Чистая строгая типографика вместо WordArt */
+  .hero-header {
+    text-align: center;
+    margin-bottom: 28px;
+    padding: 10px 0;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--primary);
+    letter-spacing: 1.5px;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .nav-notice {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  }
+
+  .section-heading {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    margin: 0 0 14px 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-heading::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Сетка основных томов книги */
+  .volumes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  @media (max-width: 650px) {
+    .volumes-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .volume-card {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 18px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--primary);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+    transition: all 0.2s ease;
+  }
+
+  .volume-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(49, 130, 130, 0.12);
+    color: #0c6161;
+  }
+
+  .volume-badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 14px;
+    margin-right: 14px;
+    flex-shrink: 0;
+  }
+
+  .volume-name {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .volume-card-full {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 18px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--primary);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+    transition: all 0.2s ease;
+    margin-bottom: 30px;
+  }
+
+  .volume-card-full:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(49, 130, 130, 0.12);
+    color: #0c6161;
+  }
+
+  /* Сетка дополнительных разделов (2 колонки) */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 650px) {
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .resource-card-group {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+  }
+
+  .resource-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    background: #fafcfb;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14.5px;
+    transition: all 0.15s ease;
+  }
+
+  .resource-item:hover {
+    background: #ffffff;
+    border-color: var(--accent);
+    transform: translateX(3px);
+    color: var(--accent);
+  }
+
+  /* Блок тестирования и авторов */
+  .quiz-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #234848 0%, #173535 100%);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 24px 20px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+  }
+
+  .quiz-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(23, 53, 53, 0.25);
+    background: linear-gradient(135deg, #2b5757 0%, #1d4040 100%);
+  }
+
+  .quiz-banner-title {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .quiz-banner-sub {
+    font-size: 13px;
+    color: #c0ded9;
+  }
+
+  .authors-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+    transition: color 0.15s ease;
+    margin-top: 4px;
+  }
+
+  .authors-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  /* Переключение языка */
+  .lang-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+  }
+
+  .lang-switch:hover {
+    background: var(--accent);
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+</style>
+</head>
+
+<body>
+<div class="index-container">
+
+  <!-- Чистый заголовок без пиксельного WordArt -->
+  <header class="hero-header">
+    <h1 class="hero-title">IMMUNOLOGY LIVE</h1>
+    <p class="hero-subtitle">Interactive Multimedia Course &bull; L.P. Churilov &amp; A.G. Vasiliev</p>
+  </header>
+
+  <div class="nav-notice">
+    Navigate chapters below. Use the bottom-right <strong>&laquo; Back</strong> button anytime to return to previous pages.
+  </div>
+
+  <!-- Раздел томов учебника -->
+  <div class="section-heading">Textbook Chapters</div>
+  
+  <div class="volumes-grid">
+    <a href="knizhka.htm" class="volume-card">
+      <span class="volume-badge">I</span>
+      <span class="volume-name">Basic Immunology</span>
+    </a>
+    <a href="knizhka3.htm" class="volume-card">
+      <span class="volume-badge">II</span>
+      <span class="volume-name">Allergology</span>
+    </a>
+    <a href="knizhka4.htm" class="volume-card">
+      <span class="volume-badge">III</span>
+      <span class="volume-name">Autoimmunity</span>
+    </a>
+    <a href="knizhka5.htm" class="volume-card">
+      <span class="volume-badge">IV</span>
+      <span class="volume-name">Immunodeficiencies</span>
+    </a>
+  </div>
+
+  <a href="knizhka2.htm" class="volume-card-full">
+    <span class="volume-badge">V</span>
+    <span class="volume-name">Immune Defense Against Alien Pathogens: Pros and Cons</span>
+  </a>
+
+  <!-- Раздел справочных материалов и тестирования -->
+  <div class="section-heading">Reference Materials &amp; Self-Test</div>
+
+  <div class="resources-grid">
+    
+    <!-- Левая колонка: справочники -->
+    <div class="resource-card-group">
+      <a href="nobel.htm" class="resource-item">
+        <span>Nobel Laureates in Immunology &rarr;</span>
+      </a>
+      <a href="referens.htm" class="resource-item">
+        <span>References &amp; Bibliography &rarr;</span>
+      </a>
+      <a href="glossary.htm" class="resource-item">
+        <span>Immunologic Terminology: A Glossary &rarr;</span>
+      </a>
+    </div>
+
+    <!-- Правая колонка: тестирование и авторы -->
+    <div class="resource-card-group" style="justify-content: space-between;">
+      <a href="test/quest1.htm" class="quiz-banner">
+        <div class="quiz-banner-title">Interactive Self-Test</div>
+        <div class="quiz-banner-sub">Questions &amp; Case Studies</div>
+      </a>
+      <a href="authors.htm" class="authors-link">
+        About the Authors &rarr;
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Переход в русскую версию -->
+  <a href="../rus/indexrus.htm" class="lang-switch">
+    &#8644; Перейти к русской версии руководства
+  </a>
+
+</div>
+
+<!-- Фиксированная кнопка назад -->
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#1f4f4f;color:#ffffff;border:2px solid #ffffff;padding:8px 18px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#318282'" onmouseout="this.style.background='#1f4f4f'">&#9664; Back</button>
+</div>
+</body>
+</html>

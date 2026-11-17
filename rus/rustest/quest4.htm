@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>quest4</title>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<div class="quiz-wrapper">
+
+
+
+
+<div class="quiz-select-box"><table border="0" width="82%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="43%"><p align="center">Пожалуйста
+    &nbsp; выберите <b>ЕДИНСТВЕННЫЙ</b> механизм, <b>НЕ </b>задействованный&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; в
+    ангионевротическом отеке (КВИНКЕ)?</td>
+    <td width="57%"><p align="center"><img border="0" src="quiani.gif" width="243"
+    height="192"></td>
+  </tr>
+</table>
+
+<table ALIGN="left">
+  <tr>
+    <td><form>
+      <input type="hidden" name="select" value><p><select name="sel" size="1"
+      onchange="if(this.value !== "#") { window.location.href = this.value; }">
+        <option selected value="#">ВЫБЕРИТЕ ПРАВИЛЬНЫЙ ОТВЕТ:</option>
+        <option value="no4.htm">Анафилаксия</option>
+        <option value="no4.htm">Гиперчувствительность 1 типа</option>
+        <option value="no4.htm">Дегрануляция тучных клеток с участием IgE</option>
+        <option value="rez4.htm">Феномен Артюса</option>
+        <option value="no4.htm">Дефицит системы комплемента (ингибитор С1)</option>
+      </select></p>
+    </form>
+    </td>
+  </tr>
+</table></div>
+
+
+<br><br><br><br><br>
+
+
+<div class="quiz-nav-row">
+  <tr >
+
+          <td align="center"  width="20%" >
+<a href="quest3.htm">    <p align="center"><img src="1.gif" alt="вернуться на один раздел назад"></p></a> </td>
+          <td align="center"  width="20%" >
+<a href="quest5.htm">  <p align="center"><img src="2.gif" alt="пропустить вопрос"></p></a></td>
+          <td align="center"  width="20%" >
+<a href="../idd.htm">   <p align="center"><img src="4.gif" alt="к оглавлению руководства"></p></a></td>
+          <td align="center"  width="20%" >
+<a href="../indexrus.htm">  <p align="center"><img src="s.gif" alt="к стартовой странице"></p></a></td>
+
+ </tr>
+</div>
+
+
+
+
+<!-- QUICK BACK BUTTON -->
+
+
+
+
+
+</div>
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#204040;color:#ffffff;border:2px solid #ffffff;padding:8px 16px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#408080'" onmouseout="this.style.background='#204040'">&#9664; &#1053;&#1072;&#1079;&#1072;&#1076;</button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selects = document.querySelectorAll("select");
+    selects.forEach(function(sel) {
+        sel.removeAttribute("onchange");
+        sel.addEventListener("change", function() {
+            var url = this.value;
+            if (url && url !== "#" && url !== "") {
+                window.location.href = url;
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

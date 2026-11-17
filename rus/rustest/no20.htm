@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Неверно! — Тест по иммунологии</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<div class="quiz-wrapper">
+  <div class="result-status result-error">
+    <div style="font-size: 48px; line-height: 1; margin-bottom: 10px;">✕</div>
+    <div class="result-title">Неверно!</div>
+    <p style="margin: 10px 0 0 0; font-size: 16px; color: #7f1d1d;">Вы ответили неправильно на завершающий вопрос теста.</p>
+  </div>
+
+  <div class="result-actions">
+    <a href="quest20.htm" class="result-btn result-btn-secondary">
+      <span>↺ Попробовать еще раз</span>
+    </a>
+    <a href="../idd.htm" class="result-btn result-btn-primary">
+      <span>К оглавлению руководства</span>
+    </a>
+    <a href="../indexrus.htm" class="result-btn result-btn-secondary">
+      <span>Меню русской версии</span>
+    </a>
+  </div>
+</div>
+
+<!-- QUICK BACK BUTTON -->
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#204040;color:#ffffff;border:2px solid #ffffff;padding:8px 16px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#408080'" onmouseout="this.style.background='#204040'">&#9664; Назад</button>
+</div>
+</body>
+</html>

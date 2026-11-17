@@ -1,0 +1,43 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>QUESTION1</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<div class="quiz-wrapper">
+
+
+<p><b>Which of these cells is NOT a
+macrophage? </b></p>
+<p> <a href="no1.htm"><img border="0" src="mac4ani.gif" width="168" height="168"></a>&nbsp;&nbsp;&nbsp; <a href="rez1.htm"><img border="0" src="plasani.gif" width="131" height="131"></a>
+&nbsp;&nbsp;&nbsp;&nbsp; <a href="no1.htm"><img border="0" src="mac2ani.gif" width="200" height="167"></a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="no1.htm"><img border="0" src="mac3ani.gif" width="210" height="210"></a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="no1.htm"><img border="0" src="mac1ani.gif" width="198" height="198"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+
+
+<!-- QUICK BACK BUTTON -->
+
+
+</div>
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;"><button onclick="history.back()" style="background:#1f4f4f;color:#ffffff;border:2px solid #ffffff;padding:8px 18px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;">&#9664; Back</button></div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selects = document.querySelectorAll("select");
+    selects.forEach(function(sel) {
+        sel.removeAttribute("onchange");
+        sel.addEventListener("change", function() {
+            var url = this.value;
+            if (url && url !== "#" && url !== "") {
+                window.location.href = url;
+            }
+        });
+    });
+});
+</script>
+</body>
+
+</html>

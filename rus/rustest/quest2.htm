@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вопрос 2: Тест по иммунологии</title>
+
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<div class="quiz-wrapper">
+
+
+
+
+
+  <div class="question-title">Вопрос чуть-чуть посложнее:</div>
+
+  <div class="question-body">
+    <span>Что же это за клетка?</span>
+    <img src="plasani.gif" alt="Какая это клетка?" width="131" height="131" onerror="this.style.display='none'">
+  </div>
+
+  <div class="select-wrapper">
+    <div class="quiz-select-box"><select name="sel" onchange="if(this.value !== '#') { window.location.href = this.value; }">
+      <option selected value="#">Выберите правильный ответ:</option>
+      <option value="no2.htm">Все-таки это макрофаг!!!</option>
+      <option value="no2.htm">Это Т-лимфоцит!</option>
+      <option value="no2.htm">Это, верно, В-лимфоцит!</option>
+      <option value="rez2.htm">Это плазматическая клетка!</option>
+      <option value="no2.htm">Знаю, это эритроцит!!!</option>
+    </select></div>
+  </div>
+
+  <!-- Кнопки перехода по тесту и оглавлению -->
+  <div class="quiz-nav-row">
+    <tr>
+      <td align="center" width="25%">
+        <a href="quest1.htm" class="nav-btn-link" title="Вернуться на один вопрос назад">
+          <img src="1.gif" alt="Предыдущий вопрос" onerror="this.outerHTML='&#9664; Назад'">
+        </a>
+      </td>
+      <td align="center" width="25%">
+        <a href="quest3.htm" class="nav-btn-link" title="Пропустить вопрос">
+          <img src="2.gif" alt="Следующий вопрос" onerror="this.outerHTML='Вперед &#9654;'">
+        </a>
+      </td>
+      <td align="center" width="25%">
+        <a href="../idd.htm" class="nav-btn-link" title="К оглавлению руководства">
+          <img src="4.gif" alt="Оглавление" onerror="this.outerHTML='Оглавление'">
+        </a>
+      </td>
+      <td align="center" width="25%">
+        <a href="../indexrus.htm" class="nav-btn-link" title="К меню русской версии">
+          <img src="s.gif" alt="Меню русской версии" onerror="this.outerHTML='Меню'">
+        </a>
+      </td>
+    </tr>
+  </div>
+</div>
+
+<!-- Фиксированная кнопка назад в правом нижнем углу -->
+
+
+
+
+
+
+</div>
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#204040;color:#ffffff;border:2px solid #ffffff;padding:8px 16px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#408080'" onmouseout="this.style.background='#204040'">&#9664; &#1053;&#1072;&#1079;&#1072;&#1076;</button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selects = document.querySelectorAll("select");
+    selects.forEach(function(sel) {
+        sel.removeAttribute("onchange");
+        sel.addEventListener("change", function() {
+            var url = this.value;
+            if (url && url !== "#" && url !== "") {
+                window.location.href = url;
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

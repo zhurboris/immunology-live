@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=utf-8">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>quest5</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body bgcolor="#82C6A6">
+<div class="quiz-wrapper">
+
+
+<p align="left">Who and when had
+authored the clonal selection theory? </p>
+
+<p><img src="../images/bordet.jpg" width="103" height="129">
+      <img src="../images/edelman.gif" width="107"
+height="132">       <img src="../images/jerne.jpg"
+width="96" height="131">     <img src="../images/burnet.jpg"
+width="107" height="130">    <img src="../images/benacf.jpg"
+width="106" height="129"> </p>
+
+<p>  </p>
+
+<div class="quiz-select-box"><table border="0">
+    <tr>
+        <td align="center"><form>
+            <input type="hidden" name="select" value><p><select
+            name="sel" size="1"
+            onchange="top.location.href = this.options[this.selectedIndex].value;">
+                <option selected value="#">please select the only correct answer:</option>
+                <option value="no5.htm">NIELS K. JERNE in 1984 .</option>
+                <option value="no5.htm">BARUJ BENACERRAF in 1980</option>
+                <option value="no5.htm">GERALD M. EDELMAN in 1972</option>
+                <option value="rez5.htm">FRANK M. BURNET and D. TOLMAGE in 1957</option>
+                <option value="no5.htm">KARL LANDSTEINER in 1930</option>
+            </select></p>
+        </form>
+        </td>
+    </tr>
+</table></div>
+
+<!-- QUICK BACK BUTTON -->
+
+
+</div>
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;"><button onclick="history.back()" style="background:#1f4f4f;color:#ffffff;border:2px solid #ffffff;padding:8px 18px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;">&#9664; Back</button></div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selects = document.querySelectorAll("select");
+    selects.forEach(function(sel) {
+        sel.removeAttribute("onchange");
+        sel.addEventListener("change", function() {
+            var url = this.value;
+            if (url && url !== "#" && url !== "") {
+                window.location.href = url;
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

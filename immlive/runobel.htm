@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Иммунологи — Нобелевские лауреаты</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .nobel-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--card-bg, #ffffff);
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+  @media (max-width: 600px) {
+    .nobel-container { padding: 20px 18px; }
+  }
+  .page-title {
+    color: var(--primary, #2B5E63);
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  .page-subtitle {
+    text-align: center;
+    color: var(--text-muted, #4A5568);
+    font-size: 16px;
+    margin-bottom: 35px;
+    font-style: italic;
+  }
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .laureate-card {
+    background: #fbfcfb;
+    border-radius: 10px;
+    border: 1px solid var(--border-color, #E2E8F0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 22px 26px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .laureate-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+  .year-badge {
+    display: inline-block;
+    background: var(--accent, #408080);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 4px 14px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+  }
+  .portraits-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 12px 0 18px 0;
+  }
+  .portraits-row img {
+    height: 180px;
+    width: auto;
+    max-width: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease;
+  }
+  .portraits-row img:hover {
+    transform: scale(1.05);
+  }
+  .laureate-names {
+    text-align: center;
+    color: var(--primary, #2B5E63);
+    font-size: 19px;
+    font-weight: 700;
+    margin: 8px 0 6px 0;
+  }
+  .laureate-desc {
+    text-align: center;
+    color: var(--text-main, #2D3748);
+    font-size: 15.5px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .bottom-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color, #E2E8F0);
+  }
+  .bottom-nav a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary, #2B5E63);
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.15s ease;
+  }
+  .bottom-nav a:hover {
+    transform: translateY(-2px);
+  }
+</style>
+</head>
+
+<body>
+<div class="nobel-container" id="Top">
+  <h1 class="page-title">ИММУНОЛОГИ — НОБЕЛЕВСКИЕ ЛАУРЕАТЫ</h1>
+  <div class="page-subtitle">Нобелевские премии за заслуги в области медицины и физиологии, присужденные ученым-иммунологам:</div>
+
+  <div class="timeline">
+
+    <!-- 1996 -->
+    <div class="laureate-card">
+      <div class="year-badge">1996</div>
+      <div class="portraits-row">
+        <img src="images/doher.gif" alt="Питер Догерти" onerror="this.style.display='none'">
+        <img src="images/zinker.gif" alt="Рольф Цинкернагель" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Питер Догерти и Рольф Цинкернагель</div>
+      <p class="laureate-desc">За открытие клеточно-опосредованного компонента иммунного ответа.</p>
+    </div>
+
+    <!-- 1987 -->
+    <div class="laureate-card">
+      <div class="year-badge">1987</div>
+      <div class="portraits-row">
+        <img src="images/susuton.gif" alt="Сусуму Тонегава" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Сусуму Тонегава</div>
+      <p class="laureate-desc">За открытие генетических основ разнообразия антител.</p>
+    </div>
+
+    <!-- 1984 -->
+    <div class="laureate-card">
+      <div class="year-badge">1984</div>
+      <div class="portraits-row">
+        <img src="images/jerne.jpg" alt="Нильс Ерне" onerror="this.style.display='none'">
+        <img src="images/kohler.jpg" alt="Джордж Колер" onerror="this.style.display='none'">
+        <img src="images/milstein.jpg" alt="Цезарь Мильштейн" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Нильс Ерне, Джордж Колер и Цезарь Мильштейн</div>
+      <p class="laureate-desc">За оригинальную теорию специфичности в развитии и регуляции иммунной системы и за открытие принципа продукции моноклональных антител.</p>
+    </div>
+
+    <!-- 1980 -->
+    <div class="laureate-card">
+      <div class="year-badge">1980</div>
+      <div class="portraits-row">
+        <img src="images/benacf.jpg" alt="Барух Бенасерраф" onerror="this.style.display='none'">
+        <img src="images/dausset.jpg" alt="Жан Доссе" onerror="this.style.display='none'">
+        <img src="images/snell.jpg" alt="Джордж Снелл" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Барух Бенасерраф, Жан Доссе и Джордж Снелл</div>
+      <p class="laureate-desc">За открытия генетически детерминированных структур клеточной мембраны, регулирующих иммунологические реакции.</p>
+    </div>
+
+    <!-- 1977 -->
+    <div class="laureate-card">
+      <div class="year-badge">1977</div>
+      <div class="portraits-row">
+        <img src="images/yal22.jpg" alt="Розалин Ялоу" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Розалин Ялоу</div>
+      <p class="laureate-desc">За разработку принципа радиоиммунологического анализа пептидных гормонов.</p>
+    </div>
+
+    <!-- 1976 -->
+    <div class="laureate-card" id="BM1976">
+      <div class="year-badge">1976</div>
+      <div class="portraits-row">
+        <img src="images/blumberg.jpg" alt="Барух Бламберг" onerror="this.style.display='none'">
+        <img src="images/gajdusek.jpg" alt="Карлтон Гайдузек" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Барух Бламберг и Карлтон Гайдузек</div>
+      <p class="laureate-desc">За работы, раскрывающие новые механизмы возникновения и распространения инфекционных заболеваний (прионы).</p>
+    </div>
+
+    <!-- 1972 -->
+    <div class="laureate-card">
+      <div class="year-badge">1972</div>
+      <div class="portraits-row">
+        <img src="images/edelman.gif" alt="Джералд Эдельман" onerror="this.style.display='none'">
+        <img src="images/porter1.jpg" alt="Родни Портер" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Джералд Эдельман и Родни Портер</div>
+      <p class="laureate-desc">За открытие химической структуры антител.</p>
+    </div>
+
+    <!-- 1960 -->
+    <div class="laureate-card">
+      <div class="year-badge">1960</div>
+      <div class="portraits-row">
+        <img src="images/burnet.jpg" alt="Фрэнк Бёрнет" onerror="this.style.display='none'">
+        <img src="images/medavar.jpg" alt="Питер Медавар" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Фрэнк Бёрнет и Питер Медавар</div>
+      <p class="laureate-desc">За открытие явления приобретенной иммунотолерантности.</p>
+    </div>
+
+    <!-- 1954 -->
+    <div class="laureate-card">
+      <div class="year-badge">1954</div>
+      <div class="portraits-row">
+        <img src="images/anders.jpg" alt="Джон Эндерс" onerror="this.style.display='none'">
+        <img src="images/weller.jpg" alt="Томас Уэллер" onerror="this.style.display='none'">
+        <img src="images/robbins.jpg" alt="Фредерик Роббинс" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Джон Эндерс, Томас Уэллер и Фредерик Роббинс</div>
+      <p class="laureate-desc">За открытие способности вируса полиомиелита культивироваться в тканевых культурах, ставшее основой для прорыва в профилактике этого заболевания.</p>
+    </div>
+
+    <!-- 1951 -->
+    <div class="laureate-card">
+      <div class="year-badge">1951</div>
+      <div class="portraits-row">
+        <img src="images/tailer.jpg" alt="Макс Тейлер" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Макс Тейлер</div>
+      <p class="laureate-desc">За исследования желтой лихорадки и разработку вакцины против нее.</p>
+    </div>
+
+    <!-- 1930 -->
+    <div class="laureate-card">
+      <div class="year-badge">1930</div>
+      <div class="portraits-row">
+        <img src="images/landsteiner.jpg" alt="Карл Ландштейнер" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Карл Ландштейнер</div>
+      <p class="laureate-desc">За открытие групп крови человека.</p>
+    </div>
+
+    <!-- 1927 -->
+    <div class="laureate-card">
+      <div class="year-badge">1927</div>
+      <div class="portraits-row">
+        <img src="images/wagnerj.jpg" alt="Юлиус Вагнер-Яурегг" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Юлиус Вагнер-Яурегг</div>
+      <p class="laureate-desc">За открытие терапевтического эффекта прививок малярии в лечении прогрессивного паралича (прообраз цитокиновой иммуностимуляции).</p>
+    </div>
+
+    <!-- 1919 -->
+    <div class="laureate-card">
+      <div class="year-badge">1919</div>
+      <div class="portraits-row">
+        <img src="images/bordet.jpg" alt="Жюль Борде" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Жюль Борде</div>
+      <p class="laureate-desc">За открытие системы комплемента и механизмов иммунитета.</p>
+    </div>
+
+    <!-- 1913 -->
+    <div class="laureate-card">
+      <div class="year-badge">1913</div>
+      <div class="portraits-row">
+        <img src="images/richet.jpg" alt="Шарль Рише" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Шарль Рише</div>
+      <p class="laureate-desc">За работы по исследованию анафилаксии.</p>
+    </div>
+
+    <!-- 1912 -->
+    <div class="laureate-card">
+      <div class="year-badge">1912</div>
+      <div class="portraits-row">
+        <img src="images/carrel.jpg" alt="Алексис Каррель" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Алексис Каррель</div>
+      <p class="laureate-desc">За работы по пересадке кровеносных сосудов и органов и разработку сосудистого шва.</p>
+    </div>
+
+    <!-- 1908 -->
+    <div class="laureate-card" id="BM1908">
+      <div class="year-badge">1908</div>
+      <div class="portraits-row">
+        <img src="images/mechnik.gif" alt="Илья Ильич Мечников" onerror="this.style.display='none'">
+        <img src="images/ehrlich.jpg" alt="Пауль Эрлих" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Илья Ильич Мечников и Пауль Эрлих</div>
+      <p class="laureate-desc">В ознаменование их выдающегося вклада в создание теоретических основ иммунологии.</p>
+    </div>
+
+    <!-- 1907 -->
+    <div class="laureate-card" id="BM1907">
+      <div class="year-badge">1907</div>
+      <div class="portraits-row">
+        <img src="images/laveran.jpg" alt="Шарль Лаверан" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Шарль Лаверан</div>
+      <p class="laureate-desc">В знак признания его работ о значении простейших как возбудителей болезней.</p>
+    </div>
+
+    <!-- 1905 -->
+    <div class="laureate-card">
+      <div class="year-badge">1905</div>
+      <div class="portraits-row">
+        <img src="images/koch.jpg" alt="Роберт Кох" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Роберт Кох</div>
+      <p class="laureate-desc">За исследования и открытия в области этиологии и диагностики туберкулеза.</p>
+    </div>
+
+    <!-- 1902 -->
+    <div class="laureate-card" id="BM1902">
+      <div class="year-badge">1902</div>
+      <div class="portraits-row">
+        <img src="images/ross.jpg" alt="Рональд Росс" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Рональд Росс</div>
+      <p class="laureate-desc">За фундаментальные исследования механизмов передачи малярии.</p>
+    </div>
+
+    <!-- 1901 -->
+    <div class="laureate-card" id="BM1901">
+      <div class="year-badge">1901</div>
+      <div class="portraits-row">
+        <img src="images/behring.jpg" alt="Эмиль фон Беринг" onerror="this.style.display='none'">
+      </div>
+      <div class="laureate-names">Эмиль фон Беринг</div>
+      <p class="laureate-desc">За работы по серотерапии (в особенности дифтерии), открывшие принципиально новый путь борьбы с инфекциями.</p>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <a href="#Top" title="В начало страницы">
+      <img src="3.gif" alt="Наверх" width="24" height="40" onerror="this.style.display='none'">
+      <span>В начало страницы</span>
+    </a>
+    <a href="../rus/indexrus.htm" title="Меню русской версии">
+      <img src="s.gif" alt="Главное меню" width="40" height="40" onerror="this.style.display='none'">
+      <span>Главное меню</span>
+    </a>
+  </div>
+</div>
+
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#1f4f4f;color:#ffffff;border:2px solid #ffffff;padding:8px 18px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#318282'" onmouseout="this.style.background='#1f4f4f'">&#9664; Back</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>k3g6</title>
+<script LANGUAGE="JavaScript" FPTYPE="dynamicanimation">
+<!--
+  // If you want to change this script, you must also make the following
+  // changes so that FrontPage will not overwrite your new script.
+  // In the script tag, change type="dynamicanimation" to type="mydynamicanimation"
+  // In the first script statement, change "dynamicanimation" to "mydynamicanimation"
+  // Throughout the HTML content, change dynamicanimation= to mydynamicanimation=
+  // Change function dynAnimation to function mydynAnimation
+  // In the body tag, change onload="dynAnimation()" to onload="mydynAnimation()"
+  dynamicanimAttr = "dynamicanimation"
+  animateElements = new Array()
+  currentElement = 0
+  speed = 0
+  stepsZoom = 8
+  stepsWord = 8
+  stepsFly = 12
+  stepsSpiral = 16
+  steps = stepsZoom
+  step = 0
+  outString = ""
+  function dynAnimation()
+  {
+    var ms = navigator.appVersion.indexOf("MSIE")
+    ie4 = (ms>0) && (parseInt(navigator.appVersion.substring(ms+5, ms+6)) >= 4)
+    if(!ie4)
+    {
+      if((navigator.appName == "Netscape") &&
+         (parseInt(navigator.appVersion.substring(0, 1)) >= 4))
+      {
+        for (index=document.layers.length-1; index >= 0; index--)
+        {
+            layer=document.layers[index]
+            if (layer.left==10000)
+                layer.left=0
+        }
+      }
+      return
+    }
+    for (index=document.all.length-1; index >= document.body.sourceIndex; index--)
+    {
+      el = document.all[index]
+      animation = el.getAttribute(dynamicanimAttr, false)
+      if(null != animation)
+      {
+        if(animation == "dropWord" || animation == "flyTopRightWord" || animation == "flyBottomRightWord")
+        {
+          ih = el.innerHTML
+          outString = ""
+          i1 = 0
+          iend = ih.length
+          while(true)
+          {
+            i2 = startWord(ih, i1)
+            if(i2 == -1)
+              i2 = iend
+            outWord(ih, i1, i2, false, "")
+            if(i2 == iend)
+              break
+            i1 = i2
+            i2 = endWord(ih, i1)
+            if(i2 == -1)
+              i2 = iend
+            outWord(ih, i1, i2, true, animation)
+            if(i2 == iend)
+              break
+            i1 = i2
+          }
+          document.all[index].innerHTML = outString
+          document.all[index].style.posLeft = 0
+          document.all[index].setAttribute(dynamicanimAttr, null)
+        }
+        if(animation == "zoomIn" || animation == "zoomOut")
+        {
+          ih = el.innerHTML
+          outString = "<SPAN " + dynamicanimAttr + "=\"" + animation + "\" style=\"position: relative; left: 10000;\">"
+          outString += ih
+          outString += "</SPAN>"
+          document.all[index].innerHTML = outString
+          document.all[index].style.posLeft = 0
+          document.all[index].setAttribute(dynamicanimAttr, null)
+        }
+      }
+    }
+    i = 0
+    for (index=document.body.sourceIndex; index < document.all.length; index++)
+    {
+      el = document.all[index]
+      animation = el.getAttribute(dynamicanimAttr, false)
+      if (null != animation)
+      {
+        if(animation == "flyLeft")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = 0
+        }
+        else if(animation == "flyRight")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)+document.body.offsetWidth
+          el.style.posTop = 0
+        }
+        else if(animation == "flyTop" || animation == "dropWord")
+        {
+          el.style.posLeft = 0
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "flyBottom")
+        {
+          el.style.posLeft = 0
+          el.style.posTop = document.body.scrollTop-offsetTop(el)+document.body.offsetHeight
+        }
+        else if(animation == "flyTopLeft")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "flyTopRight" || animation == "flyTopRightWord")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)+document.body.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "flyBottomLeft")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)+document.body.offsetHeight
+        }
+        else if(animation == "flyBottomRight" || animation == "flyBottomRightWord")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)+document.body.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)+document.body.offsetHeight
+        }
+        else if(animation == "spiral")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "zoomIn")
+        {
+          el.style.posLeft = 10000
+          el.style.posTop = 0
+        }
+        else if(animation == "zoomOut")
+        {
+          el.style.posLeft = 10000
+          el.style.posTop = 0
+        }
+        else
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = 0
+        }
+        el.initLeft = el.style.posLeft
+        el.initTop = el.style.posTop
+        animateElements[i++] = el
+      }
+    }
+    window.setTimeout("animate();", speed)
+  }
+  function offsetLeft(el)
+  {
+    x = el.offsetLeft
+    for (e = el.offsetParent; e; e = e.offsetParent)
+      x += e.offsetLeft;
+    return x
+  } 
+  function offsetTop(el)
+  {
+    y = el.offsetTop
+    for (e = el.offsetParent; e; e = e.offsetParent)
+      y += e.offsetTop;
+    return y
+  } 
+  function startWord(ih, i)
+  {
+    for(tag = false; i < ih.length; i++)
+    {
+      c = ih.charAt(i)
+      if(c == '<')
+        tag = true
+      if(!tag)
+        return i
+      if(c == '>')
+        tag = false
+    }
+    return -1
+  }
+  function endWord(ih, i)
+  {
+    nonSpace = false
+    space = false
+    while(i < ih.length)
+    {
+      c = ih.charAt(i)
+      if(c != ' ')
+        nonSpace = true
+      if(nonSpace && c == ' ')
+        space = true
+      if(c == '<')
+        return i
+      if(space && c != ' ')
+        return i
+      i++
+    }
+    return -1
+  }
+  function outWord(ih, i1, i2, dyn, anim)
+  {
+    if(dyn)
+      outString += "<SPAN " + dynamicanimAttr + "=\"" + anim + "\" style=\"position: relative; left: 10000;\">"
+    outString += ih.substring(i1, i2)
+    if(dyn)
+      outString += "</SPAN>"
+  }
+  function animate()
+  {
+    el = animateElements[currentElement]
+    animation = el.getAttribute(dynamicanimAttr, false)
+    step++
+    if(animation == "spiral")
+    {
+      steps = stepsSpiral
+      v = step/steps
+      rf = 1.0 - v
+      t = v * 2.0*Math.PI
+      rx = Math.max(Math.abs(el.initLeft), 200)
+      ry = Math.max(Math.abs(el.initTop),  200)
+      el.style.posLeft = Math.ceil(-rf*Math.cos(t)*rx)
+      el.style.posTop  = Math.ceil(-rf*Math.sin(t)*ry)
+    }
+    else if(animation == "zoomIn")
+    {
+      steps = stepsZoom
+      el.style.fontSize = Math.ceil(50+50*step/steps) + "%"
+      el.style.posLeft = 0
+    }
+    else if(animation == "zoomOut")
+    {
+      steps = stepsZoom
+      el.style.fontSize = Math.ceil(100+200*(steps-step)/steps) + "%"
+      el.style.posLeft = 0
+    }
+    else
+    {
+      steps = stepsFly
+      if(animation == "dropWord" || animation == "flyTopRightWord" || animation == "flyBottomRightWord")
+        steps = stepsWord
+      dl = el.initLeft / steps
+      dt = el.initTop  / steps
+      el.style.posLeft = el.style.posLeft - dl
+      el.style.posTop = el.style.posTop - dt
+    }
+    if (step >= steps) 
+    {
+      el.style.posLeft = 0
+      el.style.posTop = 0
+      currentElement++
+      step = 0
+    }
+    if(currentElement < animateElements.length)
+      window.setTimeout("animate();", speed)
+  }
+//-->
+</script>  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="dynAnimation()">
+<div class="book-layout">
+  <aside class="book-sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">ALLERGOLOGY</div>
+    <div style="margin-bottom: 14px;">
+      <a href="index.htm" class="sidebar-btn btn-home" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;font-size:13.5px;font-weight:700;border-radius:8px;">
+        <span>&#8962; English Main Menu</span>
+      </a>
+    </div>
+      <div class="sidebar-subtitle">Volume II Navigation</div>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <a href="k3g.htm" class="nav-item">INTRODUCTION</a>
+      <a href="k3g1.htm" class="nav-item">CLASSIFICATION OF HYPERSENSITIVITY, BASIC
+TERMINOLOGY</a>
+      <a href="k3g2.htm" class="nav-item">GENERAL PATHOGENESIS OF HYPERSENSITIVITY
+REACTIONS</a>
+      <a href="k3g3.htm" class="nav-item">THE ETIOLOGY OF ALLERGIC REACTIONS</a>
+      <a href="k3g4.htm" class="nav-item">ANAPHYLAXIS</a>
+      <a href="k3g5.htm" class="nav-item">EARLY PHASE OF ANAPHYLAXIS: IgE AND THEIR
+RECEPTORS</a>
+      <a href="k3g6.htm" class="nav-item">EARLY PHASE OF ANAPHYLAXIS: MAST CELLS'
+HETEROGENEITY</a>
+      <a href="k3g7.htm" class="nav-item">EARLY PHASE OF ANAPHYLAXIS: CELL
+DEGRANULATION</a>
+      <a href="k3g8.htm" class="nav-item">EARLY PHASE OF ANAPHYLAXIS: AUTOCOIDS OF
+INFLAMMATION</a>
+      <a href="k3g9.htm" class="nav-item">LATE PHASE OF ANAPHYLAXIS</a>
+      <a href="k3g10.htm" class="nav-item">GENETIC BACKGROUND OF ANAPHYLAXIS</a>
+      <a href="k3g11.htm" class="nav-item">THE DIVERSITY OF ANAPHYLAXIS</a>
+      <a href="k3g12.htm" class="nav-item">LOCAL FORMS OF ANAPHYLAXIS</a>
+      <a href="k3g13.htm" class="nav-item">SYSTEMIC ANAPHYLAXIS (ALLERGIC SHOCK)</a>
+      <a href="k3g14.htm" class="nav-item">BIOLOGICAL ESSENCE OF ANAPHYLAXIS: AN
+IMPERFECT DEFENSE</a>
+      <a href="k3g15.htm" class="nav-item">CATEGORY II HYPERSENSITIVITY - CYTOTOXIC
+REACTIONS</a>
+      <a href="k3g16.htm" class="nav-item">DIVERSITY OF DESTRUCTIVE CYTOTOXIC REACTIONS</a>
+      <a href="k3g17.htm" class="nav-item">AUTOIMMUNE CYTOTOXIC HEMATOLOGIC SYNDROMES</a>
+      <a href="k3g18.htm" class="nav-item">CYTOTOXIC REACTIONS IN ORGANOSPECIFIC
+AUTOALLERGY</a>
+      <a href="k3g19.htm" class="nav-item">REGULATION AND DYSREGULATION THROUGH
+ANTI-RECEPTOR AUTOANTIBODIES</a>
+      <a href="k3g20.htm" class="nav-item">TYPE III HYPERSENSITIVITY (IMMUNE
+COMPLEX-MEDIATED ALLERGY): IMMUNE COMPLEXES' CLEARANCE</a>
+      <a href="k3g21.htm" class="nav-item">THE SEQUELS OF IMMUNE COMPLEX TISSUE
+DEPOSITION</a>
+      <a href="k3g22.htm" class="nav-item">DIVERSITY OF IC-MEDIATED DISORDERS</a>
+      <a href="k3g23.htm" class="nav-item">SYSTEMIC IC-MEDIATED DISORDERS</a>
+      <a href="k3g24.htm" class="nav-item">SYSTEMIC IC VASCULITIS IN PATHOGENESIS OF
+RHEUMATOLOGICAL DISEASES</a>
+      <a href="k3g25.htm" class="nav-item">LOCAL IMMUNE COMPLEX DISEASE (ARTHUS
+REACTION)</a>
+      <a href="k3g26.htm" class="nav-item">TYPE IV HYPERSENSITIVITY - GENERAL
+DESCRIPTION AND HISTORY</a>
+      <a href="k3g27.htm" class="nav-item">CONTACT HYPERSENSITIVITY</a>
+      <a href="k3g28.htm" class="nav-item">TUBERCULIN-TYPE HYPERSENSITIVITY</a>
+      <a href="k3g29.htm" class="nav-item">GRANULOMATOUS HYPERSENSITIVITY</a>
+      <a href="k3g30.htm" class="nav-item">TISSUE DAMAGE IN DTH</a>
+      <a href="k3g31.htm" class="nav-item">TRANSPLANT REJECTION</a>
+      <a href="k3g32.htm" class="nav-item">MECHANISMS INVOLVED IN GRAFT REJECTION</a>
+      <a href="k3g33.htm" class="nav-item">CONTROL OF REJECTION, PROBLEMS OF ORGAN
+TRANSPLANTATION</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="index.htm" class="sidebar-btn btn-home">English Main Menu</a>
+    </div>
+  </aside>
+  <main class="book-content">
+
+<font SIZE="4">
+
+<p>EARLY PHASE OF ANAPHYLAXIS: MAST CELLS' HETEROGENEITY</p>
+
+<p>The main sources of anaphylactic autocoids – <i>mast cells</i> – have unitary
+histological origin, but settle in different tissues. <img src="images/basofils.jpg"
+width="338" height="79" alt="Basofils.jpg (6907 bytes)" align="right">Under the influence
+of their various tissue microenvironments, they acquire some significant differences. The <i>basophils</i>,
+although close to mast cells in their phenotype, descend from another bone marrow
+progenitor. There are 2 distinct subsets of mast cells: one belongs to mucosa membranes
+(MMM), another resides in connective tissue (CTM). The following table gives a comparis on
+of these 2 mast cell subsets. (What about the basophils, these cells contain much less
+histamine, proteoglycans and proteases than mastocytes, they are short-lived and
+synthesize chondroitin sulfates A and C). </p>
+<b>
+
+<p ALIGN="CENTER">Comparative Characterization of Two Mast Cell Subsets</p>
+</b></font>
+
+<table BORDER="7" CELLSPACING="7" CELLPADDING="7" WIDTH="654" bgcolor="#DEE0EB"
+bordercolorlight="#C0C0C0" bordercolordark="#808080" bordercolor="#000000">
+  <tr>
+    <td WIDTH="139" VALIGN="top"><b>Properties</b> </td>
+    <th WIDTH="245" VALIGN="middle" bgcolor="#FFFF80" dynamicanimation="flyBottom"
+    style="position: relative !important; left: 10000 !important"><b>Mucosal mastocytes</b> </th>
+    <th WIDTH="207" VALIGN="middle" bgcolor="#FF8080" dynamicanimation="flyBottom"
+    style="position: relative !important; left: 10000 !important"><b>Connective Tissue
+    mastocytes</b> </th>
+  </tr>
+  <tr>
+    <td WIDTH="139" VALIGN="TOP" HEIGHT="54"><b>Location</b></td>
+    <td WIDTH="248" VALIGN="TOP" HEIGHT="54">Middle and distal gut mucosa, bronchial and lung
+    mucosa, recirculate within MALT </td>
+    <td WIDTH="213" VALIGN="TOP" HEIGHT="54">Connective tissue around nerves and blood vessels
+    everywhere, especially in proximal part of gut and in skin. </td>
+  </tr>
+  <tr>
+    <td WIDTH="139" VALIGN="TOP"><b>Maturation control</b> </td>
+    <td WIDTH="248" VALIGN="TOP">IL-3 from T cells </td>
+    <td WIDTH="213" VALIGN="TOP">Neuropeptides from diffuse endocrine system </td>
+  </tr>
+  <tr>
+    <td WIDTH="139" VALIGN="TOP"><b>Histamine &amp; Proteases content</b> </td>
+    <td WIDTH="248" VALIGN="TOP">Smaller</td>
+    <td WIDTH="213" VALIGN="TOP">Greater</td>
+  </tr>
+  <tr>
+    <td WIDTH="139" VALIGN="TOP"><b>Lipid autocoids production</b> </td>
+    <td WIDTH="248" VALIGN="TOP">Mainly, leukotrienes </td>
+    <td WIDTH="213" VALIGN="TOP">Mainly, prostaglandins </td>
+  </tr>
+  <tr>
+    <td WIDTH="139" VALIGN="TOP"><b>Proteoglycans production</b> </td>
+    <td WIDTH="248" VALIGN="TOP">Chiefly, chondroitin sulfates D and E </td>
+    <td WIDTH="213" VALIGN="TOP">Chiefly, heparin </td>
+  </tr>
+  <tr>
+    <td WIDTH="139" VALIGN="TOP"><b><font color="#FF0080">Fc<font FACE="Symbol">e</font> <font
+    FACE="Symbol">-</font> R<sub>1</sub></font> properties</b> </td>
+    <td WIDTH="248" VALIGN="TOP">Amount is several thousand times greater </td>
+    <td WIDTH="213" VALIGN="TOP">Amount is 5000-8000 times smaller </td>
+  </tr>
+  <tr>
+    <td WIDTH="139" VALIGN="TOP" HEIGHT="31"><b>Longevity and terms of sensitization</b> </td>
+    <td WIDTH="248" VALIGN="TOP" HEIGHT="31">Life time is shorter, provide more acute reaction
+    </td>
+    <td WIDTH="213" VALIGN="TOP" HEIGHT="31">Longer lifetime, more prolonged sensitization and
+    inflammation. </td>
+  </tr>
+</table>
+
+<p align="center"><img src="images/mast2.jpg" width="299" height="376"
+alt="Mast2.jpg (25263 bytes)"></p>
+
+<blockquote>
+  <blockquote>
+    <p align="left"><br>
+    <br>
+    <a href="k3g7.htm">NEXT CHAPTER</a> OR <a href="index.htm" target="new"><img
+    src="images/index.gif" WIDTH="40" HEIGHT="40"></a> </p>
+  </blockquote>
+</blockquote>
+
+<!-- QUICK BACK BUTTON -->
+
+
+  </main>
+</div>
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#1f4f4f;color:#ffffff;border:2px solid #ffffff;padding:8px 18px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#318282'" onmouseout="this.style.background='#1f4f4f'">&#9664; Back</button>
+</div>
+</body>
+</html>

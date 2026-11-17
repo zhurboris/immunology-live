@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>РУКОВОДСТВО ПО ИММУНОЛОГИИ</title>
+<style>
+  body {
+    background-color: #88C1A9;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  .link-button {
+    display: block;
+    width: 85%;
+    max-width: 800px;
+    margin: 25px auto;
+    padding: 30px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: 3px outset #ffffff;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  /* Русская кнопка */
+  .rus-block {
+    background-color: #E4EFE6;
+    color: #408080;
+  }
+  .rus-block:hover {
+    background-color: #ffffff;
+  }
+  /* Английская кнопка */
+  .eng-block {
+    background-color: #6da790;
+    color: #ffffff;
+  }
+  .eng-block:hover {
+    background-color: #408080;
+  }
+  h1 {
+    margin: 10px 0;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+  h2 {
+    margin: 5px 0;
+    font-size: 20px;
+  }
+  p {
+    margin: 5px 0;
+    font-size: 18px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Русская версия -->
+  <a href="rus/indexrus.htm" class="link-button rus-block">
+    <h2>А.Г. Васильев, Л.П. Чурилов</h2>
+    <h1>РУКОВОДСТВО ПО ИММУНОЛОГИИ<br>И ИММУНОПАТОЛОГИИ</h1>
+    <p>русская версия</p>
+  </a>
+
+  <!-- Английская версия -->
+  <a href="immlive/index.htm" class="link-button eng-block">
+    <p>english version</p>
+    <h1>IMMUNOLOGY LIVE</h1>
+    <h2>by Leonid Churilov &amp; Andrew Vasiliev</h2>
+  </a>
+
+<!-- QUICK BACK BUTTON -->
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#E4EFE6;color:#204040;border:2px outset #ffffff;padding:8px 18px;border-radius:20px;cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;box-shadow:0 3px 8px rgba(0,0,0,0.3);transition:background 0.2s;" onmouseover="this.style.background='#ffffff'" onmouseout="this.style.background='#E4EFE6'">&#9664; Назад</button>
+</div>
+
+</body>
+</html>

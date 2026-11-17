@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MHC I & MHC II — Ассоциация антигенов</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  .scheme-article {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--card-bg, #ffffff);
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    color: var(--text-main, #2D3748);
+  }
+  @media (max-width: 600px) {
+    .scheme-article { padding: 20px 18px; }
+  }
+  .scheme-title {
+    color: var(--primary, #2B5E63);
+    font-size: 22px;
+    font-weight: 800;
+    text-align: center;
+    margin: 0 0 12px 0;
+    line-height: 1.35;
+  }
+  .scheme-subtitle {
+    text-align: center;
+    color: var(--text-muted, #4A5568);
+    font-size: 16px;
+    margin: 0 0 25px 0;
+    line-height: 1.5;
+  }
+  .comparison-box {
+    background: #fbfcfb;
+    border: 1px solid var(--border-color, #E2E8F0);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 25px;
+  }
+  .comparison-caption {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary, #2B5E63);
+    margin-bottom: 18px;
+  }
+  .images-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .image-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .image-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  }
+  .image-card span {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted, #4A5568);
+  }
+  .info-note {
+    background: #E4EFE6;
+    border-left: 4px solid var(--accent, #408080);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #1a4242;
+    margin-bottom: 30px;
+  }
+  .related-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .related-link-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #ffffff;
+    border: 1px solid var(--border-color, #E2E8F0);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--primary, #2B5E63);
+    font-size: 14.5px;
+    font-weight: 600;
+    transition: all 0.15s ease;
+  }
+  .related-link-item:hover {
+    background: #f4f8f6;
+    border-color: var(--accent, #408080);
+    transform: translateX(4px);
+    color: #0E7490;
+  }
+  .related-link-item img {
+    flex-shrink: 0;
+  }
+  .bottom-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color, #E2E8F0);
+  }
+  .bottom-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #E4EFE6;
+    color: #204040;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #8CBFC4;
+    transition: all 0.2s ease;
+  }
+  .bottom-nav a:hover {
+    background: #ffffff;
+    border-color: #408080;
+  }
+</style>
+</head>
+
+<body>
+<div class="scheme-article">
+  <h1 class="scheme-title">MHC I & MHC II</h1>
+  <p class="scheme-subtitle">
+    Разнообразные антигены, фрагментированные на олигопептиды, ассоциируются с молекулами МНС для презентации Т-лимфоцитам.
+  </p>
+
+  <div class="comparison-box">
+    <div class="comparison-caption">Связывание МНС I с нонапептидом и MHC II — с додекапептидом:</div>
+    <div class="images-row">
+      <div class="image-card">
+        <img src="images/mhc1stat.gif" alt="MHC I с нонапептидом" width="303" height="304" onerror="this.style.display='none'">
+        <span>Комплекс MHC I</span>
+      </div>
+      <div class="image-card">
+        <img src="images/mhc2stat.gif" alt="MHC II с додекапептидом" width="303" height="304" onerror="this.style.display='none'">
+        <span>Комплекс MHC II</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-note">
+    Механизмы презентации антигена как в профессиональной антиген-презентирующей клетке, так и в любой ядерной клетке, не являющейся профессиональной АПК, чрезвычайно сложны. Они имеют исключительное значение для кооперации клеток в иммунном ответе.
+  </div>
+
+  <div style="font-weight: 700; color: var(--primary, #2B5E63); margin-bottom: 10px; font-size: 15px;">
+    Связанные интерактивные схемы:
+  </div>
+  <div class="related-links">
+    <a href="mhc2apc.htm" class="related-link-item">
+      <img src="images/ball.gif" width="14" height="14" alt="" onerror="this.style.display='none'">
+      <span>Презентация антигена профессиональной АПК (MHC II)</span>
+    </a>
+    <a href="mhc1ac.htm" class="related-link-item">
+      <img src="images/ball.gif" width="14" height="14" alt="" onerror="this.style.display='none'">
+      <span>Презентация антигена непрофессиональной ядросодержащей клеткой (MHC I)</span>
+    </a>
+    <a href="imresp1.htm" class="related-link-item">
+      <img src="images/ball.gif" width="14" height="14" alt="" onerror="this.style.display='none'">
+      <span>Кооперация клеток в общем иммунном ответе</span>
+    </a>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="rusmovie.htm">
+      <span>&#9664; К списку схем</span>
+    </a>
+    <a href="../indexrus.htm">
+      <span>Главное меню</span>
+    </a>
+  </div>
+</div>
+
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#204040;color:#ffffff;border:2px solid #ffffff;padding:8px 16px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#408080'" onmouseout="this.style.background='#204040'">&#9664; Назад</button>
+</div>
+</body>
+</html>

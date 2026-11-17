@@ -1,0 +1,53 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>QUESTION2</title>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<div class="quiz-wrapper">
+
+
+<br>
+<p><b>NOW ANOTHER QUESTION: </b></p>
+<p><b>WHICH CELL IS THIS? <img border="0" src="plasani.gif" alt="WHICH CELL IS THIS?" width="131" height="131"></b></p>
+<br>
+<table ALIGN=left><tr><td><div class="quiz-select-box"><form>
+<input type="hidden" name="select"><select name="sel" size="1"
+ onchange="top.location.href = this.options[this.selectedIndex].value;">
+ <option selected value="#">select the best answer:</option>
+ <option value=no2.htm>macrofage</option>
+ <option value=no2.HTM>T-lymphocyte</option>
+ <option value=no2.HTM>B-lypmphocyte</option>
+ <option value=rez2.HTM>plasma cell</option>
+ <option value=no2.HTM>RBC</option>
+</select></form></div></td>
+</center>
+	
+
+<!-- QUICK BACK BUTTON -->
+
+
+</div>
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;"><button onclick="history.back()" style="background:#1f4f4f;color:#ffffff;border:2px solid #ffffff;padding:8px 18px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;">&#9664; Back</button></div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selects = document.querySelectorAll("select");
+    selects.forEach(function(sel) {
+        sel.removeAttribute("onchange");
+        sel.addEventListener("change", function() {
+            var url = this.value;
+            if (url && url !== "#" && url !== "") {
+                window.location.href = url;
+            }
+        });
+    });
+});
+</script>
+</body>
+
+</html>

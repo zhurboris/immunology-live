@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Вопрос 20</title>
+
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<div class="quiz-wrapper">
+
+
+
+
+<div class="question-title">К ГЗТ не относится:</div>
+
+<div class="select-box">
+  <div class="quiz-select-box"><select name="sel" onchange="if(this.value && this.value !== '#') window.location.href = this.value;">
+    <option selected value="#">Выберите единственный правильный ответ:</option>
+    <option value="no20.htm">Отторжение трансплантата</option>
+    <option value="no20.htm">Контактный дерматит</option>
+    <option value="no20.htm">Гранулематозная гиперчувствительность</option>
+    <option value="no20.htm">Туберкулиновая гиперчувствительность</option>
+    <option value="no20.htm">Реакция трансплантат против хозяина</option>
+    <option value="rez20.htm">Атопический дерматит</option>
+  </select></div>
+</div>
+
+<!-- Панель навигации тестов -->
+<table class="test-nav">
+  <tr>
+    <td>
+      <a href="quest19.htm" title="Вернуться к предыдущему вопросу">
+        <img src="1.gif" alt="Назад к вопросу 19">
+      </a>
+    </td>
+    <td>
+      <a href="../indexrus.htm" title="Завершить тесты / Пропустить">
+        <img src="2.gif" alt="Пропустить">
+      </a>
+    </td>
+    <td>
+      <a href="../idd.htm" title="К оглавлению руководства">
+        <img src="4.gif" alt="Оглавление">
+      </a>
+    </td>
+    <td>
+      <a href="../indexrus.htm" title="К стартовой странице">
+        <img src="s.gif" alt="Меню русской версии">
+      </a>
+    </td>
+  </tr>
+</table>
+
+<!-- QUICK BACK BUTTON -->
+
+
+
+
+
+
+</div>
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#204040;color:#ffffff;border:2px solid #ffffff;padding:8px 16px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#408080'" onmouseout="this.style.background='#204040'">&#9664; &#1053;&#1072;&#1079;&#1072;&#1076;</button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selects = document.querySelectorAll("select");
+    selects.forEach(function(sel) {
+        sel.removeAttribute("onchange");
+        sel.addEventListener("change", function() {
+            var url = this.value;
+            if (url && url !== "#" && url !== "") {
+                window.location.href = url;
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

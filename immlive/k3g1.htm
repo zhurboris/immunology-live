@@ -1,0 +1,555 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>k3g1</title>
+<script LANGUAGE="JavaScript" FPTYPE="dynamicanimation">
+<!--
+  // If you want to change this script, you must also make the following
+  // changes so that FrontPage will not overwrite your new script.
+  // In the script tag, change type="dynamicanimation" to type="mydynamicanimation"
+  // In the first script statement, change "dynamicanimation" to "mydynamicanimation"
+  // Throughout the HTML content, change dynamicanimation= to mydynamicanimation=
+  // Change function dynAnimation to function mydynAnimation
+  // In the body tag, change onload="dynAnimation()" to onload="mydynAnimation()"
+  dynamicanimAttr = "dynamicanimation"
+  animateElements = new Array()
+  currentElement = 0
+  speed = 0
+  stepsZoom = 8
+  stepsWord = 8
+  stepsFly = 12
+  stepsSpiral = 16
+  steps = stepsZoom
+  step = 0
+  outString = ""
+  function dynAnimation()
+  {
+    var ms = navigator.appVersion.indexOf("MSIE")
+    ie4 = (ms>0) && (parseInt(navigator.appVersion.substring(ms+5, ms+6)) >= 4)
+    if(!ie4)
+    {
+      if((navigator.appName == "Netscape") &&
+         (parseInt(navigator.appVersion.substring(0, 1)) >= 4))
+      {
+        for (index=document.layers.length-1; index >= 0; index--)
+        {
+            layer=document.layers[index]
+            if (layer.left==10000)
+                layer.left=0
+        }
+      }
+      return
+    }
+    for (index=document.all.length-1; index >= document.body.sourceIndex; index--)
+    {
+      el = document.all[index]
+      animation = el.getAttribute(dynamicanimAttr, false)
+      if(null != animation)
+      {
+        if(animation == "dropWord" || animation == "flyTopRightWord" || animation == "flyBottomRightWord")
+        {
+          ih = el.innerHTML
+          outString = ""
+          i1 = 0
+          iend = ih.length
+          while(true)
+          {
+            i2 = startWord(ih, i1)
+            if(i2 == -1)
+              i2 = iend
+            outWord(ih, i1, i2, false, "")
+            if(i2 == iend)
+              break
+            i1 = i2
+            i2 = endWord(ih, i1)
+            if(i2 == -1)
+              i2 = iend
+            outWord(ih, i1, i2, true, animation)
+            if(i2 == iend)
+              break
+            i1 = i2
+          }
+          document.all[index].innerHTML = outString
+          document.all[index].style.posLeft = 0
+          document.all[index].setAttribute(dynamicanimAttr, null)
+        }
+        if(animation == "zoomIn" || animation == "zoomOut")
+        {
+          ih = el.innerHTML
+          outString = "<SPAN " + dynamicanimAttr + "=\"" + animation + "\" style=\"position: relative; left: 10000;\">"
+          outString += ih
+          outString += "</SPAN>"
+          document.all[index].innerHTML = outString
+          document.all[index].style.posLeft = 0
+          document.all[index].setAttribute(dynamicanimAttr, null)
+        }
+      }
+    }
+    i = 0
+    for (index=document.body.sourceIndex; index < document.all.length; index++)
+    {
+      el = document.all[index]
+      animation = el.getAttribute(dynamicanimAttr, false)
+      if (null != animation)
+      {
+        if(animation == "flyLeft")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = 0
+        }
+        else if(animation == "flyRight")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)+document.body.offsetWidth
+          el.style.posTop = 0
+        }
+        else if(animation == "flyTop" || animation == "dropWord")
+        {
+          el.style.posLeft = 0
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "flyBottom")
+        {
+          el.style.posLeft = 0
+          el.style.posTop = document.body.scrollTop-offsetTop(el)+document.body.offsetHeight
+        }
+        else if(animation == "flyTopLeft")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "flyTopRight" || animation == "flyTopRightWord")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)+document.body.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "flyBottomLeft")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)+document.body.offsetHeight
+        }
+        else if(animation == "flyBottomRight" || animation == "flyBottomRightWord")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)+document.body.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)+document.body.offsetHeight
+        }
+        else if(animation == "spiral")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "zoomIn")
+        {
+          el.style.posLeft = 10000
+          el.style.posTop = 0
+        }
+        else if(animation == "zoomOut")
+        {
+          el.style.posLeft = 10000
+          el.style.posTop = 0
+        }
+        else
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = 0
+        }
+        el.initLeft = el.style.posLeft
+        el.initTop = el.style.posTop
+        animateElements[i++] = el
+      }
+    }
+    window.setTimeout("animate();", speed)
+  }
+  function offsetLeft(el)
+  {
+    x = el.offsetLeft
+    for (e = el.offsetParent; e; e = e.offsetParent)
+      x += e.offsetLeft;
+    return x
+  } 
+  function offsetTop(el)
+  {
+    y = el.offsetTop
+    for (e = el.offsetParent; e; e = e.offsetParent)
+      y += e.offsetTop;
+    return y
+  } 
+  function startWord(ih, i)
+  {
+    for(tag = false; i < ih.length; i++)
+    {
+      c = ih.charAt(i)
+      if(c == '<')
+        tag = true
+      if(!tag)
+        return i
+      if(c == '>')
+        tag = false
+    }
+    return -1
+  }
+  function endWord(ih, i)
+  {
+    nonSpace = false
+    space = false
+    while(i < ih.length)
+    {
+      c = ih.charAt(i)
+      if(c != ' ')
+        nonSpace = true
+      if(nonSpace && c == ' ')
+        space = true
+      if(c == '<')
+        return i
+      if(space && c != ' ')
+        return i
+      i++
+    }
+    return -1
+  }
+  function outWord(ih, i1, i2, dyn, anim)
+  {
+    if(dyn)
+      outString += "<SPAN " + dynamicanimAttr + "=\"" + anim + "\" style=\"position: relative; left: 10000;\">"
+    outString += ih.substring(i1, i2)
+    if(dyn)
+      outString += "</SPAN>"
+  }
+  function animate()
+  {
+    el = animateElements[currentElement]
+    animation = el.getAttribute(dynamicanimAttr, false)
+    step++
+    if(animation == "spiral")
+    {
+      steps = stepsSpiral
+      v = step/steps
+      rf = 1.0 - v
+      t = v * 2.0*Math.PI
+      rx = Math.max(Math.abs(el.initLeft), 200)
+      ry = Math.max(Math.abs(el.initTop),  200)
+      el.style.posLeft = Math.ceil(-rf*Math.cos(t)*rx)
+      el.style.posTop  = Math.ceil(-rf*Math.sin(t)*ry)
+    }
+    else if(animation == "zoomIn")
+    {
+      steps = stepsZoom
+      el.style.fontSize = Math.ceil(50+50*step/steps) + "%"
+      el.style.posLeft = 0
+    }
+    else if(animation == "zoomOut")
+    {
+      steps = stepsZoom
+      el.style.fontSize = Math.ceil(100+200*(steps-step)/steps) + "%"
+      el.style.posLeft = 0
+    }
+    else
+    {
+      steps = stepsFly
+      if(animation == "dropWord" || animation == "flyTopRightWord" || animation == "flyBottomRightWord")
+        steps = stepsWord
+      dl = el.initLeft / steps
+      dt = el.initTop  / steps
+      el.style.posLeft = el.style.posLeft - dl
+      el.style.posTop = el.style.posTop - dt
+    }
+    if (step >= steps) 
+    {
+      el.style.posLeft = 0
+      el.style.posTop = 0
+      currentElement++
+      step = 0
+    }
+    if(currentElement < animateElements.length)
+      window.setTimeout("animate();", speed)
+  }
+//-->
+</script>  <link rel="stylesheet" href="style.css">
+</head>
+
+<body bgcolor="#FFFFFF" onload="dynAnimation()">
+<div class="book-layout">
+  <aside class="book-sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">ALLERGOLOGY</div>
+    <div style="margin-bottom: 14px;">
+      <a href="index.htm" class="sidebar-btn btn-home" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;font-size:13.5px;font-weight:700;border-radius:8px;">
+        <span>&#8962; English Main Menu</span>
+      </a>
+    </div>
+      <div class="sidebar-subtitle">Volume II Navigation</div>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <a href="k3g.htm" class="nav-item">INTRODUCTION</a>
+      <a href="k3g1.htm" class="nav-item">CLASSIFICATION OF HYPERSENSITIVITY, BASIC
+TERMINOLOGY</a>
+      <a href="k3g2.htm" class="nav-item">GENERAL PATHOGENESIS OF HYPERSENSITIVITY
+REACTIONS</a>
+      <a href="k3g3.htm" class="nav-item">THE ETIOLOGY OF ALLERGIC REACTIONS</a>
+      <a href="k3g4.htm" class="nav-item">ANAPHYLAXIS</a>
+      <a href="k3g5.htm" class="nav-item">EARLY PHASE OF ANAPHYLAXIS: IgE AND THEIR
+RECEPTORS</a>
+      <a href="k3g6.htm" class="nav-item">EARLY PHASE OF ANAPHYLAXIS: MAST CELLS'
+HETEROGENEITY</a>
+      <a href="k3g7.htm" class="nav-item">EARLY PHASE OF ANAPHYLAXIS: CELL
+DEGRANULATION</a>
+      <a href="k3g8.htm" class="nav-item">EARLY PHASE OF ANAPHYLAXIS: AUTOCOIDS OF
+INFLAMMATION</a>
+      <a href="k3g9.htm" class="nav-item">LATE PHASE OF ANAPHYLAXIS</a>
+      <a href="k3g10.htm" class="nav-item">GENETIC BACKGROUND OF ANAPHYLAXIS</a>
+      <a href="k3g11.htm" class="nav-item">THE DIVERSITY OF ANAPHYLAXIS</a>
+      <a href="k3g12.htm" class="nav-item">LOCAL FORMS OF ANAPHYLAXIS</a>
+      <a href="k3g13.htm" class="nav-item">SYSTEMIC ANAPHYLAXIS (ALLERGIC SHOCK)</a>
+      <a href="k3g14.htm" class="nav-item">BIOLOGICAL ESSENCE OF ANAPHYLAXIS: AN
+IMPERFECT DEFENSE</a>
+      <a href="k3g15.htm" class="nav-item">CATEGORY II HYPERSENSITIVITY - CYTOTOXIC
+REACTIONS</a>
+      <a href="k3g16.htm" class="nav-item">DIVERSITY OF DESTRUCTIVE CYTOTOXIC REACTIONS</a>
+      <a href="k3g17.htm" class="nav-item">AUTOIMMUNE CYTOTOXIC HEMATOLOGIC SYNDROMES</a>
+      <a href="k3g18.htm" class="nav-item">CYTOTOXIC REACTIONS IN ORGANOSPECIFIC
+AUTOALLERGY</a>
+      <a href="k3g19.htm" class="nav-item">REGULATION AND DYSREGULATION THROUGH
+ANTI-RECEPTOR AUTOANTIBODIES</a>
+      <a href="k3g20.htm" class="nav-item">TYPE III HYPERSENSITIVITY (IMMUNE
+COMPLEX-MEDIATED ALLERGY): IMMUNE COMPLEXES' CLEARANCE</a>
+      <a href="k3g21.htm" class="nav-item">THE SEQUELS OF IMMUNE COMPLEX TISSUE
+DEPOSITION</a>
+      <a href="k3g22.htm" class="nav-item">DIVERSITY OF IC-MEDIATED DISORDERS</a>
+      <a href="k3g23.htm" class="nav-item">SYSTEMIC IC-MEDIATED DISORDERS</a>
+      <a href="k3g24.htm" class="nav-item">SYSTEMIC IC VASCULITIS IN PATHOGENESIS OF
+RHEUMATOLOGICAL DISEASES</a>
+      <a href="k3g25.htm" class="nav-item">LOCAL IMMUNE COMPLEX DISEASE (ARTHUS
+REACTION)</a>
+      <a href="k3g26.htm" class="nav-item">TYPE IV HYPERSENSITIVITY - GENERAL
+DESCRIPTION AND HISTORY</a>
+      <a href="k3g27.htm" class="nav-item">CONTACT HYPERSENSITIVITY</a>
+      <a href="k3g28.htm" class="nav-item">TUBERCULIN-TYPE HYPERSENSITIVITY</a>
+      <a href="k3g29.htm" class="nav-item">GRANULOMATOUS HYPERSENSITIVITY</a>
+      <a href="k3g30.htm" class="nav-item">TISSUE DAMAGE IN DTH</a>
+      <a href="k3g31.htm" class="nav-item">TRANSPLANT REJECTION</a>
+      <a href="k3g32.htm" class="nav-item">MECHANISMS INVOLVED IN GRAFT REJECTION</a>
+      <a href="k3g33.htm" class="nav-item">CONTROL OF REJECTION, PROBLEMS OF ORGAN
+TRANSPLANTATION</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="index.htm" class="sidebar-btn btn-home">English Main Menu</a>
+    </div>
+  </aside>
+  <main class="book-content">
+
+
+<p><font size="4">CLASSIFICATION OF HYPERSENSITIVITY, BASIC TERMINOLOGY</font></p>
+
+<p><font size="4">Hypersensitivity diseases can be classified on the basis of the
+immunologic mechanisms that mediate the disease. This approach is of value in clarifying
+the manner in which the immune response ultimately causes tissue injury and disease.</font></p>
+
+<p><font size="4">According to the classical system by J. Coombs and P. Gell (1932 and
+later), the immunopathological reactions are classified into two types:</font> 
+
+<ul>
+  <li dynamicanimation="flyTopRight"
+  style="position: relative !important; left: 10000 !important"><font size="4">Those, in which
+    circulating immunoglobulins are essential, known as <a
+    name="immediate type hypersensitivity (ITH)"><i>immediate type hypersensitivity (ITH)</i></a>.</font></li>
+  <li dynamicanimation="flyBottomRight"
+  style="position: relative !important; left: 10000 !important"><font size="4">Those,
+    occurring without any contribution of circulating antibodies exclusively through specific
+    clones of cellular effectors, called <i>delayed type hypersensitivity (DTH). </i></font></li>
+</ul>
+
+<p><font size="4">During the early period of Immunology development ITH were often
+referred to as “humoral immunity” and DTH were commonly mentioned as “cellular
+immunity”. But, it is necessary to stress here, that these historical terms are not
+precise. Soluble immunoglobulin production also requires active contribution of T and
+B-lymphocytes and APC. And vice versa, DTH is not possible without the action of
+interleukines, which are “humoral”, if one prefers archaic language. Hence, as all
+immune phenomena, in fact, depend on both cells and their soluble products, it does not
+make sense to use terms “humoral” or “cellular” reactions any longer. </font></p>
+
+<p align="left"><img src="images/pic94.gif" width="485" height="238"></p>
+
+<p><font size="4">An important is the principal difference between ITH and DTH. To discuss
+this, we need to remind that in Allergology primary immune response for a given allergen
+is traditionally titled with the specific term: “<i>sensitization</i>” (see below).</font></p>
+
+<p><font size="4">ITH are mediated by specific circulating antibodies against the
+appropriate allergens. After completion of primary immune response these immunoglobulins
+may present in sufficient titers everywhere in circulation and in many tissues, therefore
+their interaction with new portions of the same allergen can progress very rapidly.</font></p>
+
+<p><font size="4">That’s why, ITH is characterized by relatively quick appearance of
+clinical symptoms after contact of <u>already sensitized organism</u> with an allergen,
+once caused sensitization. This time interval (lag phase of inflammation) may be as short
+as few seconds, but commonly is 1-4 h (early phase finishes within 24 hours). </font></p>
+
+<p><font size="4">Unlike this, the very period of sensitization (time, required for
+cumulating of high Ig titers in course of primary immune response for an allergen never
+met before) in ITH is quite <u>long</u>: it occupies between 7 and 12 days. Approximately
+1 week is necessary to achieve APC function, antigen processing and presentation, cell
+cooperation and MHC-mediated recognition, cytokines release, and, most time consuming step
+- clonal expansion of Th and B-lymphocytes and plasma cell appearance. And almost the same
+time will take plasma cells “ to pump up” the antibodies’ titers.</font></p>
+
+<p><font size="4">DTH does not depend on Ig and needs the cooperation of different
+cellular effectors in so called “productive inflammation”.</font></p>
+
+<p><font size="4">The DTH commonly gives clinical manifestations in 48-72 h after contact
+of sensitized organism with an allergen, <u>previously already triggered primary</u> <u>immune
+response</u>. It can be explained by relatively low rate of cellular migration into the
+foci of DTH-ruled inflammation. Although it sounds paradoxally in comparison with the name
+<u>delayed </u>hypersensitivity, the very process of sensitization in DTH can be achieved
+in relatively shorter terms – between 3 and 6 days after primary allergenic challenge.
+It is not surprising, because in DTH an organism is ready for boosted responses as soon as
+clonal expansion of T-cells is finished, with no need to cumulate any soluble secretory
+products. So, DTH are <u>prepared</u> more <u>quickly</u>, than ITH, but <u>manifested</u>
+a bit <u>slower</u>. </font></p>
+
+<p><font size="4">These two types of hypersensitivity differ also in the ways of <i>passive
+immunization. </i>The ability for ITH towards a given allergen (“sensitization”) can
+be transferred from sensitized donor to non-sensitized recipient via donor’s blood serum
+(or its immunoglobulin fraction). </font></p>
+
+<p><font size="4">The ability for DTH towards a given allergen can be transferred from
+sensitized donor to non-sensitized recipient via donor’s whole blood, or T lymphocytes
+(for example with bone marrow transplantation). This way of passive immunization is called
+<i>adoptive transfer</i>. </font></p>
+
+<p><font size="4">Commonly an allergen provokes mostly DTH mechanisms if it is able to
+persist within APC for a long time, because in this case it will be presented via
+endocellular rout, with the help of MHC 1 Class proteins. CD8+ effectors will recognize it
+and form the responding clones (see above “Antigen presentation”). The allergens,
+rapidly destroyed after phagocytosis, will trigger, predominantly, ITH mechanisms, as they
+are processed via exocellular route, with the help of MHC 2 Class proteins and recognized
+primarily by CD4+ lymphocytes. The result may look as exsudative (alterative)
+inflammation. From this point of view, it is understandable that DTH can be evoked by
+autoantigens and grafts, as well as by different germs, able to survive within host cells
+(mycobacteria, protozoa, fungi etc.). DTH proceeds as gradually increasing productive
+inflammation with a considerable role of cytokines. </font></p>
+
+<p><font size="4">Principally, the same complex allergen is able to start both types of
+hypersensitivity in parallels, or in different equations, depending on rout of its
+administration, its physical and chemical properties and many other factors. For example,
+autoimmune thyroiditis is accompanied both with T-cell infiltration of the involved gland
+(symptom of DTH) and high titers of circulating autoantibodies against thyroid
+myeloperoxidase (manifestation of ITH). </font></p>
+
+<p><font size="4">The allergologists (as well as authors of fairy tales) are very fond of
+the number 3. Owing to this, not only wizards commonly execute 3 wishes and warriors
+commit 3 heroic deeds. Almost all immunological classifications practically always triple.</font></p>
+
+<p><font size="4">The classification of hypersensitivity, by P. Gell, is not an exception.</font></p>
+
+<p><font size="4">Immediate hypersensitivity reactions are divided into 3 categories:</font>
+
+<ul>
+  <li><font size="4">In category I , the immune response releases so called <i>reagins (</i>in
+    humans<i> IgE and IgG<sub>4</sub>)</i>. These antibodies are able to stimulate
+    degranulation of certain cellular types, supplied with reagin-sensitive receptors. The
+    triggered cells (mastocytes, basophils and later eosinophils), in turn, release and
+    produce vasoactive and spasmogenic substances that act on vessels, smooth muscle, glands
+    and other targets, thus altering their function. This is called <i>anaphylaxis.</i></font></li>
+</ul>
+
+<ul>
+  <li><font size="4">Category II of immediate hypersensitivity is mediated by antibodies of
+    other isotypes directed toward self or alien antigens, present on the surface of cells or
+    other tissue components. The antibodies aim some effector cytotoxic mechanisms, including
+    complement, phagocytosis and Ig-dependent cytotoxicity on matched target cells,
+    predisposing the cells to lysis. The classic name for the phenomena of this category is <i>cytotoxic
+    reactions.</i></font></li>
+</ul>
+
+<ul>
+  <li><font size="4">In category III the disorders are best remembered as &quot;<i>immune
+    complex reactions</i>,&quot; in which humoral antibodies of different classes bind soluble
+    of affixed antigens and form complexes. The most essential detail of these phenomena is
+    abnormally decreased clearance of such complexes, which are not eliminated properly, but
+    sediment on endothelium or other tissue structures, causing activation of cascade
+    proteolitic mediators and clotting. This is resulted in vasculitis and/or other forms of
+    inflammation. The fractions of complement then attract and activate neutrophils, which,
+    partly through the release of neutrophilic lysosomal enzymes, produce tissue damage.</font></li>
+</ul>
+
+<p><font size="4">In the year 1975 P. Gell and later G. Bendixen (1980) has attempted to
+upgrade this trichotomic classification of ITH. 2 additional categories of ITH were
+delineated:</font> 
+
+<ul>
+  <li><font size="4">Immunological block or stimulation of functional cellular receptors by
+    means of antibodies.</font></li>
+  <li><font size="4">Antibody-dependent cellular cytotoxicity.</font></li>
+</ul>
+
+<p><font size="4">But, both mechanisms were proven to be just varieties of category II
+course, so authors are convinced that their separation is not practical. Latest sources
+reverted to classic 3 categories (I. Roitt et al.; 1994).</font></p>
+
+<p><font size="4">As the reader perhaps has already guessed, delayed hypersensitivity
+(sometimes referred to as 4-th type of reactions) is also subdivided into 3 categories (by
+A. Hawkrogers, K. Brostoff and D. Male, 1994):</font> </p>
+
+<blockquote>
+  <blockquote>
+    <p><img src="images/contderm.jpg" width="273" height="200" alt="ContDerm.jpg (8896 bytes)"
+    align="right"><font size="7">1.</font><font size="4"> If the allergen persists within
+    epidermis, the manifestation of DTH looks like <i>contact-type dermatitis</i> with
+    characteristic vesicular rash.</font></p>
+  </blockquote>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<blockquote>
+  <blockquote>
+    <p><img src="images/papder.jpg" width="274" height="91" alt="PAPDER.jpg (5891 bytes)"
+    align="right"><font size="7">2.</font><font size="4"> Deeper penetration and persisting of
+    an allergen within derma gives <i>tuberculin-like reaction</i> manifested in papulous
+    dermatitis.</font></p>
+  </blockquote>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<blockquote>
+  <blockquote>
+    <p><img src="images/sypha.jpg" width="316" height="151" alt="Sypha.jpg (11244 bytes)"
+    align="right"><font size="7">3.</font><font size="4"> In systemic dissemination of an
+    allergen through the whole organism or its subcutaneous injection, DTH proceeds like <i>granulomatous
+    reaction</i> with production of characteristic foci of productive inflammation –
+    granulomata – at the sites of allergen persistence. Every granuloma is a group of
+    chronically activated macrophages and their descends (epithelioid cells) plus attracted
+    lymphocytes and other WBC.</font></p>
+  </blockquote>
+</blockquote>
+
+<p>&nbsp; </p>
+
+<p><font size="4">All these 3 categories of DTH involve tissue injury in which
+cell-mediated immune responses with sensitized lymphocytes are the cause of the cellular
+and tissue injury.</font></p>
+
+<p><font size="4">Prototypes of each of these immune mechanisms are presented in the
+following sections.</font></p>
+
+<p><a href="k3g2.htm">NEXT CHAPTER</a> OR <a href="index.htm" target="new"><img
+src="images/index.gif" WIDTH="40" HEIGHT="40"></a> </p>
+
+<!-- QUICK BACK BUTTON -->
+
+
+  </main>
+</div>
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#1f4f4f;color:#ffffff;border:2px solid #ffffff;padding:8px 18px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#318282'" onmouseout="this.style.background='#1f4f4f'">&#9664; Back</button>
+</div>
+</body>
+</html>

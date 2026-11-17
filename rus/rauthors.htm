@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Авторы руководства</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .authors-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--card-bg, #ffffff);
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+  @media (max-width: 600px) {
+    .authors-container {
+      padding: 20px 18px;
+    }
+  }
+  .page-title {
+    color: var(--primary, #2B5E63);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+  }
+  .photo-box {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .photo-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border-color, #E2E8F0);
+  }
+  .caption {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    color: var(--text-muted, #4A5568);
+    line-height: 1.4;
+  }
+  .caption a {
+    color: var(--primary, #2B5E63);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  .caption a:hover {
+    color: #0E7490;
+  }
+  .bio-card {
+    background: #fbfcfb;
+    border-left: 4px solid var(--accent, #408080);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+  .bio-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary, #2B5E63);
+    margin-bottom: 6px;
+  }
+  .bio-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-main, #2D3748);
+    margin: 0;
+  }
+  .thanks-section {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color, #E2E8F0);
+    text-align: center;
+  }
+  .thanks-intro {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--text-main, #2D3748);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .thanks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .thanks-badge {
+    background: #E4EFE6;
+    color: #1f4f4f;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  .bottom-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color, #E2E8F0);
+  }
+  .bottom-nav a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary, #2B5E63);
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.15s ease;
+  }
+  .bottom-nav a:hover {
+    transform: translateY(-2px);
+  }
+</style>
+</head>
+
+<body>
+<div class="authors-container">
+  <h1 class="page-title">АВТОРЫ РУКОВОДСТВА ПО ИММУНОЛОГИИ И ИММУНОПАТОЛОГИИ</h1>
+
+  <div class="photo-box">
+    <img src="trio.gif" alt="Л.П. Чурилов, Памятник Мечникову и А.Г. Васильев" onerror="this.style.display='none'">
+  </div>
+  <div class="caption">
+    <strong>Леонид Павлович Чурилов</strong>, <a href="../immlive/runobel.htm">Памятник Мечникову</a> и <strong>Андрей Глебович Васильев</strong>
+  </div>
+
+  <div class="bio-card">
+    <div class="bio-name">А.Г. Васильев</div>
+    <p class="bio-desc">
+      Доктор медицинских наук, профессор кафедры патологической физиологии с курсами теоретической иммунопатологии и медицинской информатики Санкт-Петербургской государственной педиатрической медицинской академии.
+    </p>
+  </div>
+
+  <div class="bio-card">
+    <div class="bio-name">Памятник И.И. Мечникову</div>
+    <p class="bio-desc">
+      Установлен на территории Санкт-Петербургской государственной медицинской академии имени И.И. Мечникова.
+    </p>
+  </div>
+
+  <div class="bio-card">
+    <div class="bio-name">Л.П. Чурилов</div>
+    <p class="bio-desc">
+      Кандидат медицинских наук, зав. кафедрой патологии медицинского факультета Санкт-Петербургского государственного университета и по совместительству доцент родной кафедры патологической физиологии с курсами теоретической иммунопатологии и медицинской информатики Санкт-Петербургской государственной педиатрической медицинской академии.
+    </p>
+  </div>
+
+  <div class="thanks-section">
+    <p class="thanks-intro">
+      Авторы искренне признательны всем, кто вдохновил их на труд по созданию руководства, предложил идеи или оказал поддержку:
+    </p>
+    <div class="thanks-grid">
+      <span class="thanks-badge">Артемий и Степан Васильевы</span>
+      <span class="thanks-badge">Иван, Лена и Ростислав Чуриловы</span>
+      <span class="thanks-badge">А.М. Зайчик</span>
+      <span class="thanks-badge">Л.Н. Сафонов</span>
+      <span class="thanks-badge">Р.К. Данилов</span>
+      <span class="thanks-badge">Дж. Сорос</span>
+      <span class="thanks-badge">Р. Флорес</span>
+      <span class="thanks-badge">А.В. Наумов</span>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="indexrus.htm" title="Меню русской версии">
+      <img src="s.gif" alt="Главное меню" width="48" height="48" onerror="this.style.display='none'">
+      <span>Главное меню</span>
+    </a>
+  </div>
+</div>
+
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#204040;color:#ffffff;border:2px solid #ffffff;padding:8px 16px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#408080'" onmouseout="this.style.background='#204040'">&#9664; &#1053;&#1072;&#1079;&#1072;&#1076;</button>
+</div>
+</body>
+</html>

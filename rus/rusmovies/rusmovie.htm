@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анимированные схемы по иммунологии</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  .movies-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--card-bg, #ffffff);
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+  @media (max-width: 600px) {
+    .movies-container {
+      padding: 20px 18px;
+    }
+  }
+  .page-title {
+    color: var(--primary, #2B5E63);
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+  }
+  .page-subtitle {
+    text-align: center;
+    color: var(--text-muted, #4A5568);
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+  .schemes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .scheme-card {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    background: #fbfcfb;
+    border: 1px solid var(--border-color, #E2E8F0);
+    border-left: 5px solid var(--accent, #408080);
+    border-radius: 0 8px 8px 0;
+    text-decoration: none;
+    color: var(--primary, #2B5E63);
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease;
+  }
+  .scheme-card:hover {
+    background: #ffffff;
+    border-color: #408080;
+    transform: translateX(4px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    color: #0E7490;
+  }
+  .scheme-num {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #E4EFE6;
+    color: #1f4f4f;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 16px;
+    flex-shrink: 0;
+  }
+  .bottom-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color, #E2E8F0);
+  }
+  .bottom-nav a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary, #2B5E63);
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.15s ease;
+  }
+  .bottom-nav a:hover {
+    transform: translateY(-2px);
+  }
+</style>
+</head>
+
+<body>
+<div class="movies-container">
+  <h1 class="page-title">АНИМИРОВАННЫЕ СХЕМЫ ПО ИММУНОЛОГИИ</h1>
+  <div class="page-subtitle">Интерактивные динамические модели клеточных взаимодействий</div>
+
+  <div class="schemes-list">
+    <a href="imresp1.htm" class="scheme-card">
+      <span class="scheme-num">1</span>
+      <span>Общая схема иммунного ответа</span>
+    </a>
+
+    <a href="mhc1&2.htm" class="scheme-card">
+      <span class="scheme-num">2</span>
+      <span>Ассоциация MHC I и MHC II с процессированным антигеном для его презентации</span>
+    </a>
+
+    <a href="mhc2apc.htm" class="scheme-card">
+      <span class="scheme-num">3</span>
+      <span>Презентация антигена специализированными антиген-презентирующими клетками</span>
+    </a>
+
+    <a href="mhc1ac.htm" class="scheme-card">
+      <span class="scheme-num">4</span>
+      <span>Презентация антигена любой клеткой, не являющейся профессиональной АПК</span>
+    </a>
+
+    <a href="compl.htm" class="scheme-card">
+      <span class="scheme-num">5</span>
+      <span>Комплемент-зависимая цитотоксичность</span>
+    </a>
+
+    <a href="tkil.htm" class="scheme-card">
+      <span class="scheme-num">6</span>
+      <span>Механизм Т-киллинга</span>
+    </a>
+
+    <a href="ani.htm" class="scheme-card">
+      <span class="scheme-num">7</span>
+      <span>Регуляторные эффекты антирецепторных антител</span>
+    </a>
+
+    <a href="inter.htm" class="scheme-card">
+      <span class="scheme-num">8</span>
+      <span>Влияние анти-ДНК Ig на транскрипцию</span>
+    </a>
+
+    <a href="anaph.htm" class="scheme-card">
+      <span class="scheme-num">9</span>
+      <span>Этиопатогенез анафилаксии</span>
+    </a>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="../indexrus.htm" title="Меню русской версии">
+      <img src="s.gif" alt="Главное меню" width="48" height="48" onerror="this.style.display='none'">
+      <span>Главное меню</span>
+    </a>
+  </div>
+</div>
+
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#204040;color:#ffffff;border:2px solid #ffffff;padding:8px 16px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#408080'" onmouseout="this.style.background='#204040'">&#9664; Назад</button>
+</div>
+</body>
+</html>

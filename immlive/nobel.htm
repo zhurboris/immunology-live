@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMMUNOLOGISTS - NOBEL PRIZE WINNERS</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nobel-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg, #ffffff);
+      padding: 35px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+    @media (max-width: 600px) {
+      .nobel-container { padding: 20px 18px; }
+    }
+    .page-title {
+      color: var(--primary, #2B5E63);
+      text-align: center;
+      margin: 0 0 8px 0;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .page-subtitle {
+      text-align: center;
+      color: #800000;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 0 0 35px 0;
+    }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .laureate-card {
+      background: #fbfcfb;
+      border-radius: 10px;
+      border: 1px solid var(--border-color, #E2E8F0);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      padding: 22px 26px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .laureate-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+    .year-badge {
+      display: inline-block;
+      background: var(--accent, #408080);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 4px 14px;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .portraits-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin: 10px 0 16px 0;
+    }
+    .portraits-row img {
+      height: 190px;
+      width: auto;
+      max-width: 170px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 2px solid #ffffff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s ease;
+    }
+    .portraits-row img:hover {
+      transform: scale(1.05);
+    }
+    .laureate-text {
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--text-main, #2D3748);
+      margin: 0;
+      text-align: justify;
+    }
+    .laureate-text a {
+      color: var(--primary, #2B5E63);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+    .laureate-text a:hover {
+      color: #0E7490;
+    }
+    .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color, #E2E8F0);
+    }
+    .bottom-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #E4EFE6;
+      color: #1f4f4f;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      border: 1px solid #8CBFC4;
+      transition: all 0.2s ease;
+    }
+    .bottom-nav a:hover {
+      background: #ffffff;
+      border-color: #408080;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+<div class="nobel-container" id="Top">
+  <h1 class="page-title">IMMUNOLOGISTS &mdash; NOBEL PRIZE WINNERS</h1>
+  <div class="page-subtitle">W H O &nbsp; I S &nbsp; T H E &nbsp; N E X T &nbsp; O N E ?..</div>
+  
+  <div class="timeline">
+    <!-- 1996 -->
+    <div class="laureate-card">
+      <div class="year-badge">1996</div>
+      <div class="portraits-row">
+        <img src="images/doher.gif" alt="PETER C. DOHERTY" onerror="this.style.display='none'">
+        <img src="images/zinker.gif" alt="ROLF M. ZINKERNAGEL" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text">The prize was awarded jointly to: <b><a href="adoh.htm">PETER C. DOHERTY</a></b> and <b><a href="azinker.htm">ROLF M. ZINKERNAGEL</a></b> for their discoveries concerning the specificity of the cell mediated immune defence.</p>
+    </div>
+
+    <!-- 1987 -->
+    <div class="laureate-card">
+      <div class="year-badge">1987</div>
+      <div class="portraits-row">
+        <img src="images/susuton.gif" alt="SUSUMU TONEGAWA" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><b><a href="aton.htm">SUSUMU TONEGAWA</a></b> for his discovery of the genetic principle for generation of antibody diversity.</p>
+    </div>
+
+    <!-- 1984 -->
+    <div class="laureate-card">
+      <div class="year-badge">1984</div>
+      <div class="portraits-row">
+        <img src="images/jerne.jpg" alt="NIELS K. JERNE" onerror="this.style.display='none'">
+        <img src="images/kohler.jpg" alt="GEORGES J.F. KOHLER" onerror="this.style.display='none'">
+        <img src="images/milstein.jpg" alt="CESAR MILSTEIN" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text">The prize was awarded jointly to: <b><a href="jernepl.htm">NIELS K. JERNE</a></b>, <b>GEORGES J.F. KOHLER</b> and <b>CESAR MILSTEIN</b> for theories concerning the specificity in development and control of the immune system and the discovery of the principle for production of monoclonal antibodies.</p>
+    </div>
+
+    <!-- 1980 -->
+    <div class="laureate-card">
+      <div class="year-badge">1980</div>
+      <div class="portraits-row">
+        <img src="images/benacf.jpg" alt="BARUJ BENACERRAF" onerror="this.style.display='none'">
+        <img src="images/dausset.jpg" alt="JEAN DAUSSET" onerror="this.style.display='none'">
+        <img src="images/snell.jpg" alt="GEORGE D. SNELL" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text">The prize was awarded jointly to: <b>BARUJ BENACERRAF</b>, <b>JEAN DAUSSET</b> and <b>GEORGE D. SNELL</b> for their discoveries concerning genetically determined structures on the cell surface that regulate immunological reactions.</p>
+    </div>
+
+    <!-- 1977 -->
+    <div class="laureate-card">
+      <div class="year-badge">1977</div>
+      <div class="portraits-row">
+        <img src="images/yal22.jpg" alt="ROSALYN YALOW" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text">The prize was divided equally, one half awarded to: <b><a href="yalow.htm">ROSALYN YALOW</a></b> for the development of radioimmunoassays of peptide hormones.</p>
+    </div>
+
+    <!-- 1976 -->
+    <div class="laureate-card" id="1976">
+      <div class="year-badge">1976</div>
+      <div class="portraits-row">
+        <img src="images/blumberg.jpg" alt="BARUCH S. BLUMBERG" onerror="this.style.display='none'">
+        <img src="images/gajdusek.jpg" alt="D. CARLETON GAJDUSEK" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text">The prize was awarded jointly to: <b>BARUCH S. BLUMBERG</b> and <b>D. CARLETON GAJDUSEK</b> for their discoveries concerning new mechanisms for the origin and dissemination of infectious diseases.</p>
+    </div>
+
+    <!-- 1972 -->
+    <div class="laureate-card">
+      <div class="year-badge">1972</div>
+      <div class="portraits-row">
+        <img src="images/edelman.gif" alt="GERALD M. EDELMAN" onerror="this.style.display='none'">
+        <img src="images/porter1.jpg" alt="RODNEY R. PORTER" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text">The prize was awarded jointly to: <b>GERALD M. EDELMAN</b> and <b>RODNEY R. PORTER</b> for their discoveries concerning the chemical structure of antibodies.</p>
+    </div>
+
+    <!-- 1960 -->
+    <div class="laureate-card">
+      <div class="year-badge">1960</div>
+      <div class="portraits-row">
+        <img src="images/burnet.jpg" alt="SIR FRANK MACFARLANE BURNET" onerror="this.style.display='none'">
+        <img src="images/medavar.jpg" alt="SIR PETER BRIAN MEDAWAR" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text">The prize was awarded jointly to: <b>SIR FRANK MACFARLANE BURNET</b> and <b>SIR PETER BRIAN MEDAWAR</b> for discovery of acquired immunological tolerance.</p>
+    </div>
+
+    <!-- 1954 -->
+    <div class="laureate-card">
+      <div class="year-badge">1954</div>
+      <div class="portraits-row">
+        <img src="images/anders.jpg" alt="JOHN FRANKLIN ENDERS" onerror="this.style.display='none'">
+        <img src="images/weller.jpg" alt="THOMAS HUCKLE WELLER" onerror="this.style.display='none'">
+        <img src="images/robbins.jpg" alt="FREDERICK CHAPMAN ROBBINS" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text">The prize was awarded jointly to: <b>JOHN FRANKLIN ENDERS</b>, <b>THOMAS HUCKLE WELLER</b> and <b>FREDERICK CHAPMAN ROBBINS</b> for their discovery of the ability of poliomyelitis viruses to grow in cultures of various types of tissue, which was essential for immune prophylaxis of these disease.</p>
+    </div>
+
+    <!-- 1951 -->
+    <div class="laureate-card">
+      <div class="year-badge">1951</div>
+      <div class="portraits-row">
+        <img src="images/tailer.jpg" alt="MAX THEILER" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><b>MAX THEILER</b> for his discoveries concerning yellow fever and how to combat it (vaccination).</p>
+    </div>
+
+    <!-- 1930 -->
+    <div class="laureate-card">
+      <div class="year-badge">1930</div>
+      <div class="portraits-row">
+        <img src="images/landsteiner.jpg" alt="KARL LANDSTEINER" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><b>KARL LANDSTEINER</b> for his discovery of human blood groups.</p>
+    </div>
+
+    <!-- 1927 -->
+    <div class="laureate-card">
+      <div class="year-badge">1927</div>
+      <div class="portraits-row">
+        <img src="images/wagnerj.jpg" alt="JULIUS WAGNER-JAUREGG" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><b>JULIUS WAGNER-JAUREGG</b> for his discovery of the therapeutic value of malaria inoculation in the treatment of dementia paralytica. (in fact, the phenomenon of cytokine immunostimulation)</p>
+    </div>
+
+    <!-- 1919 -->
+    <div class="laureate-card">
+      <div class="year-badge">1919</div>
+      <div class="portraits-row">
+        <img src="images/bordet.jpg" alt="JULES BORDET" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><b>JULES BORDET</b> for his discoveries relating to immunity (complement).</p>
+    </div>
+
+    <!-- 1913 -->
+    <div class="laureate-card">
+      <div class="year-badge">1913</div>
+      <div class="portraits-row">
+        <img src="images/richet.jpg" alt="CHARLES ROBERT RICHET" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><b>CHARLES ROBERT RICHET</b> in recognition of his work on anaphylaxis.</p>
+    </div>
+
+    <!-- 1912 -->
+    <div class="laureate-card">
+      <div class="year-badge">1912</div>
+      <div class="portraits-row">
+        <img src="images/carrel.jpg" alt="ALEXIS CARREL" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><b>ALEXIS CARREL</b> in recognition of his work on vascular suture and the transplantation of blood-vessels and organs.</p>
+    </div>
+
+    <!-- 1908 -->
+    <div class="laureate-card" id="1908">
+      <div class="year-badge">1908</div>
+      <div class="portraits-row">
+        <img src="images/mechnik.gif" alt="ILYA ILYICH MECHNIKOV" onerror="this.style.display='none'">
+        <img src="images/ehrlich.jpg" alt="PAUL EHRLICH" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text">The prize was awarded jointly to: <a name="MECHNIKOV"><b>ILYA ILYICH MECHNIKOV</b></a> and <b>PAUL EHRLICH</b> in recognition of their work on immunity.</p>
+    </div>
+
+    <!-- 1907 -->
+    <div class="laureate-card" id="1907">
+      <div class="year-badge">1907</div>
+      <div class="portraits-row">
+        <img src="images/laveran.jpg" alt="CHARLES LOUIS ALPHONSE LAVERAN" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><b>CHARLES LOUIS ALPHONSE LAVERAN</b> in recognition of his work on the role played by protozoa in causing diseases.</p>
+    </div>
+
+    <!-- 1905 -->
+    <div class="laureate-card">
+      <div class="year-badge">1905</div>
+      <div class="portraits-row">
+        <img src="images/koch.jpg" alt="ROBERT KOCH" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><b>ROBERT KOCH</b> for his investigations and discoveries in relation to tuberculosis.</p>
+    </div>
+
+    <!-- 1902 -->
+    <div class="laureate-card" id="1902">
+      <div class="year-badge">1902</div>
+      <div class="portraits-row">
+        <img src="images/ross.jpg" alt="SIR RONALD ROSS" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><strong>SIR RONALD ROSS</strong> for his work on malaria.</p>
+    </div>
+
+    <!-- 1901 -->
+    <div class="laureate-card" id="1901">
+      <div class="year-badge">1901</div>
+      <div class="portraits-row">
+        <img src="images/behring.jpg" alt="EMIL ADOLF VON BEHRING" onerror="this.style.display='none'">
+      </div>
+      <p class="laureate-text"><b>EMIL ADOLF VON BEHRING</b> for his work on serum therapy, especially its application against diphtheria, by which he has opened a new road in the domain of medical science and thereby placed in the hands of the physician a victorious weapon against illness and deaths.</p>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="index.htm">
+      <img src="images/index.gif" width="28" height="28" alt="" onerror="this.style.display='none'">
+      <span>English Main Menu</span>
+    </a>
+  </div>
+</div>
+
+<!-- QUICK BACK BUTTON -->
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#1f4f4f;color:#ffffff;border:2px solid #ffffff;padding:8px 18px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#318282'" onmouseout="this.style.background='#1f4f4f'">&#9664; Back</button>
+</div>
+</body>
+</html>

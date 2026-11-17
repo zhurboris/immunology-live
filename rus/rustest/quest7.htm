@@ -1,0 +1,86 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>quest7</title>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body bgcolor="#FFCECE">
+<div class="quiz-wrapper">
+
+
+
+
+<dl>
+  <dd><h2><small>Назовите самый
+    распространенный вид </small></h2>
+  </dd>
+  <dd>первичного
+    иммунодефицита:</dd>
+  <dd>&nbsp;</dd>
+</dl>
+
+<div class="quiz-select-box"><table border="0">
+  <tr>
+    <td><form>
+      <input type="hidden" name="select" value><dl>
+        <dd><select name="sel" size="1"
+          onchange="if(this.value !== "#") { window.location.href = this.value; }"
+          >
+            <option selected value="#">ВЫБЕРИТЕ ЕДИНСТВЕННЫЙ ПРАВИЛЬНЫЙ ОТВЕТ:</option>
+            <option value="no7.htm">Болезнь Брутона (Агаммаглобулинемия)</option>
+            <option value="no7.htm">Синдром Незелофа</option>
+            <option value="no7.htm">Тяжелый комбинированный иммунодефицит</option>
+            <option value="rez7.htm">Селективный дефицит IgA</option>
+          </select></dd>
+      </dl>
+    </form>
+    </td>
+  </tr>
+</table></div>
+
+<br><br><div class="quiz-nav-row">
+  <tr >
+
+          <td align="center"  width="20%" >
+<a href="quest6.htm">    <p align="center"><img src="1.gif" alt="вернуться на один раздел назад"></p></a> </td>
+          <td align="center"  width="20%" >
+<a href="quest8.htm">  <p align="center"><img src="2.gif" alt="пропустить вопрос"></p></a></td>
+          <td align="center"  width="20%" >
+<a href="../idd.htm">   <p align="center"><img src="4.gif" alt="к оглавлению руководства"></p></a></td>
+          <td align="center"  width="20%" >
+<a href="../indexrus.htm">  <p align="center"><img src="s.gif" alt="к стартовой странице"></p></a></td>
+
+ </tr>
+</div>
+
+
+<!-- QUICK BACK BUTTON -->
+
+
+
+
+
+</div>
+<div id="quick-nav-bar" style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="history.back()" style="background:#204040;color:#ffffff;border:2px solid #ffffff;padding:8px 16px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,0.35);cursor:pointer;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;transition:0.2s;" onmouseover="this.style.background='#408080'" onmouseout="this.style.background='#204040'">&#9664; &#1053;&#1072;&#1079;&#1072;&#1076;</button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selects = document.querySelectorAll("select");
+    selects.forEach(function(sel) {
+        sel.removeAttribute("onchange");
+        sel.addEventListener("change", function() {
+            var url = this.value;
+            if (url && url !== "#" && url !== "") {
+                window.location.href = url;
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
